@@ -12,6 +12,22 @@ app.get("/", function (req, res) {
 	res.send("Hello world");
 });
 
+app.get("/sign-up", function (req, res) {
+	res.send("Hello world");
+});
+
+app.get("/log-in", function (req, res) {
+	res.send("Hello world");
+});
+
+app.get("/delivery-quote", function (req, res) {
+	res.send("Hello world");
+});
+
+app.get("/delivery-purchase", function (req, res) {
+	res.send("Hello world");
+});
+
 app.listen(3000, function () {
 	console.log(new Array(50).join('*'));
 	console.log("STARTED ON localhost:3000");
