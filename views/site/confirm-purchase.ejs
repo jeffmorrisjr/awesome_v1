@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+<head>
+  <h1>Confirm Your Purchase: <%= product.name %></h1>
+  <div class="image">
+  <img src="/images/<%= product.image %>" />
+  <link rel="stylesheet" href="/stylesheets.bootstrap.min.css"
+</head>
+<body>
+    <h2>We Need A Few More Details
+    <form action="/confirm-purchase" method="POST">
+    <span>$<%= product.price.toFixed(2) %></span><br />
+    <input type="hidden" name="product" value="<%= product_id %>" />
+      <script
+        src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+        data-key="sk_test_vdJVMdFkkph1j6d08JDTLfIt" 
+        data-amount="50"
+        data-name="Christmas Tree"
+        data-description="A lovely tree for your home"
+        data-image=""
+      </script>
+    </form>
+    <div> Thanks for stopping by!</div>
+</body>
+</html>
+
+
