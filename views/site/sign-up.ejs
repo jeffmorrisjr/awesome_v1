@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>HTML Form</title>
+
+<!-- Is the CSS below necessary? -->
+    <style type="text/css">
+    h2 (letter-spacing: 10px; font-size .2in)
+    </style>
+
+<!-- We have Bootstrap below so might not be required -->
+
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">                  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/theme.min.js"></script>
+    <script src="/js/map.min.js"></script>
+
+  </head>
+  <body>
+
+  <!-- Confused about the form action section - where should I send this? -->
+   <form action="/index.ejs" method="post">
+<fieldset>
+    <legend>Join Awesome</legend>
+    <table cellpadding="3">
+      <tr><td width="150px"><strong>Email Address </strong></td><td><input type="text" name="username"></td></tr>
+      <tr><td><strong>First name</strong></td><td><input type="text" name="firstname"></td></tr>
+      <tr><td><strong>Last name</strong></td><td><input type="text" name="lastname"></td></tr>
+    </table>
+    </fieldset>
+    </form>
+  </body>
+</html>
+ 

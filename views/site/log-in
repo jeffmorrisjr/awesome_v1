@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>HTML Form</title>
+
+<!-- Is the CSS below necessary? -->
+    <style type="text/css">
+    h2 (letter-spacing: 10px; font-size .2in)
+    </style>
+
+<!-- We have Bootstrap below so might not be required -->
+
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">                  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/theme.min.js"></script>
+    <script src="/js/map.min.js"></script>
+  </head>
+  <body>
+      <h2>Welcome Back To Awesome!</h2>
+    <form name="Sign In">
+    <fieldset>
+        <legend>Sign In</legend>
+          Email Address: <input type"text" name="Email Address"/><br/>
+          Password: <input type"password" name="Password"/><br/>
+          <input type="submit" value="Log In"/>
+    </fieldset>
+    </form>
+  </body>
+</html>
+ 

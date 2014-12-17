@@ -1,10 +1,10 @@
 var express = require("express"),
   bodyParser = require("body-parser"),
   db = require("./models"),
-  passport = reqire("passport"),
+  passport = require("passport"),
   session = require("cookie-session"),
   bcrypt = require("bcrypt"),
-  methodOverride = require("method-override")
+  methodOverride = require("method-override");
   app = express();
 
 app.set("view engine", "ejs");
@@ -66,7 +66,7 @@ app.post("/users", function (req, res) {
   var newUser = req.body.user;
   console.log("New User:", newUser);
  // We create the user and secure their password info
-  db.user.createSecure(newUser.email, newUser.password, 
+  db.user.createSecure(newUser.email, newUser.password,
     function () {
       // if it fails redirect to sign up
       res.redirect("/sign_up");
@@ -74,11 +74,11 @@ app.post("/users", function (req, res) {
     function (err, user) {
       // when successfully created log the user in
       // req.login is given by the passport
-      req.login(user, function(){ 
-        console.log("Id: ", user.id)
+      req.login(user, function(){
+      console.log("Id: ", user.id);
       res.redirect('/users/' + user.id);
     });
-   })
+  });
 });
 
 app.get("/users/:id", function (req, res) {
@@ -89,7 +89,7 @@ app.get("/users/:id", function (req, res) {
     })
     .error(function () {
       res.redirect("/sign_up");
-    })
+    });
 });
 
 // When someone wants the login page
@@ -104,7 +104,7 @@ app.post('/login', passport.authenticate('local', {
 }));
 
 app.get("/", function (req, res) {
-	console.log(req.user)
+	console.log(req.user);
 	// req.user is the user currently logged in
 
 	if (req.user) {
@@ -123,11 +123,13 @@ app.get("/logout", function (req, res) {
 // Sites related routes
 app.get("/", function (req, res) {
 	res.render('site/index');
+});
+
 app.get("/sign-up", function (req, res) {
 	res.send("Hello world");
 });
 
-// 
+//
 
 /*when a customer reqest a delivery quote
 
@@ -147,7 +149,7 @@ app.get("/delivery-quote", function (req, res) {
 	res.send("Hello world");
 });
 
-/* once delivery is placed, 
+/* once delivery is placed,
 redirect to page that follows delivery
 */
 
