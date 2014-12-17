@@ -1,7 +1,7 @@
 {
   "name": "jeffrey",
   "version": "1.0.0",
-  "description": "an app that lets jeffrey bring you amazing things, on-demand.",
+  "description": "An app that lets Jeffrey bring you amazing things, on-demand.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,10 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "body-parser": "^1.10.0",
+    "cookie-parser": "^1.3.3",
+    "cookie-session": "^1.1.0",
     "ejs": "^1.0.0",
     "express": "^4.10.6",
+    "lodash": "^2.4.1",
     "method-override": "^2.3.0",
+    "passport": "^0.2.1",
     "pg": "^4.1.1",
     "sequelize": "^2.0.0-rc3"
   }
