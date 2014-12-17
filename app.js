@@ -7,6 +7,10 @@ var express = require("express"),
   methodOverride = require("method-override");
   app = express();
 
+// Creating an instance of Postmates that we can use to interact with their endpoints:
+var Postmates = require('postmates');
+var postmates = new Postmates('yourCustomerId', 'yourAPIkey');
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
@@ -56,11 +60,12 @@ passport.deserializeUser(function(id, done){
 });
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
-app.get("/sign_up", function (req, res) {
-  res.render("users/sign_up");
+app.get("/sign-up", function (req, res) {
+  res.render("users/sign-up");
 });
 
 // WHEN SOMEONE SUBMITS A SIGNUP PAGE
+// WHAT WOULD BE THE CORRECT URL TO SEND THEM TO?
 app.post("/users", function (req, res) {
   console.log("POST /users");
   var newUser = req.body.user;
@@ -76,6 +81,7 @@ app.post("/users", function (req, res) {
       // req.login is given by the passport
       req.login(user, function(){
       console.log("Id: ", user.id);
+ // where should this redirct to?
       res.redirect('/users/' + user.id);
     });
   });
@@ -93,14 +99,14 @@ app.get("/users/:id", function (req, res) {
 });
 
 // When someone wants the login page
-app.get("/login", function (req, res) {
-	res.render("users/login");
+app.get("/log-in", function (req, res) {
+	res.render("users/log-in");
 });
 
 // Authenticating a user
-app.post('/login', passport.authenticate('local', {
+app.post('/log-in', passport.authenticate('local', {
 	successRedirect: '/',
-	failureRedirect: '/login'
+	failureRedirect: '/log-in'
 }));
 
 app.get("/", function (req, res) {
@@ -108,12 +114,13 @@ app.get("/", function (req, res) {
 	// req.user is the user currently logged in
 
 	if (req.user) {
-		res.redner("site/index", {user: req.user});
+		res.render("site/index", {user: req.user});
 	} else {
 	  res.render("site/index", {user: false});
 	}
 });
 
+// have to fix this route or create a logout page
 app.get("/logout", function (req, res) {
 	// log out
 	req.logout();
@@ -131,7 +138,7 @@ app.get("/sign-up", function (req, res) {
 
 //
 
-/*when a customer reqest a delivery quote
+/*when a customer request a delivery quote
 
 POST /v1/customers/:customer_id/delivery_quotes
 
