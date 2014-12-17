@@ -61,7 +61,7 @@ passport.deserializeUser(function(id, done){
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
 app.get("/sign-up", function (req, res) {
-  res.render("users/sign-up");
+  res.render("site/sign-up");
 });
 
 // WHEN SOMEONE SUBMITS A SIGNUP PAGE
@@ -100,7 +100,7 @@ app.get("/users/:id", function (req, res) {
 
 // When someone wants the login page
 app.get("/log-in", function (req, res) {
-	res.render("users/log-in");
+	res.render("site/log-in");
 });
 
 // Authenticating a user
@@ -132,9 +132,9 @@ app.get("/", function (req, res) {
 	res.render('site/index');
 });
 
-app.get("/sign-up", function (req, res) {
-	res.send("Hello world");
-});
+// app.get("/sign-up", function (req, res) {
+// 	res.send("Hello world");
+// });
 
 //
 
