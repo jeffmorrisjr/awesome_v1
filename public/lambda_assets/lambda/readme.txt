@@ -1,1 +1,0 @@
-Please goto help.oxygenna.com/wordpress/lambda
