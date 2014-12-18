@@ -82,7 +82,7 @@ app.post("/users", function (req, res) {
       req.login(user, function(){
       console.log("Id: ", user.id);
       // where should this redirect to?
-      res.redirect('/users/' + user.id);
+      res.redirect('/');
     });
   });
 });
