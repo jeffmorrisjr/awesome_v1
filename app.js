@@ -60,7 +60,7 @@ passport.deserializeUser(function(id, done){
 });
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
-app.get("site/sign-up", function (req, res) {
+app.get("/sign-up", function (req, res) {
   res.render("site/sign-up");
 });
 
@@ -74,14 +74,14 @@ app.post("/users", function (req, res) {
   db.user.createSecure(newUser.email, newUser.password,
     function () {
       // if it fails redirect to sign up
-      res.redirect("/sign_up");
+      res.redirect("/sign-up");
     },
     function (err, user) {
       // when successfully created log the user in
       // req.login is given by the passport
       req.login(user, function(){
       console.log("Id: ", user.id);
- // where should this redirect to?
+      // where should this redirect to?
       res.redirect('/users/' + user.id);
     });
   });
@@ -94,7 +94,7 @@ app.get("/users/:id", function (req, res) {
       res.render("users/show", {user: user});
     })
     .error(function () {
-      res.redirect("site/sign-up");
+      res.redirect("/sign-up");
     });
 });
 
@@ -106,7 +106,7 @@ app.get("/log-in", function (req, res) {
 // Authenticating a user
 app.post('/log-in', passport.authenticate('local', {
 	successRedirect: '/',
-	failureRedirect: 'site/log-in'
+	failureRedirect: '/log-in'
 }));
 
 app.get("/", function (req, res) {
