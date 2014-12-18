@@ -1,5 +1,5 @@
 {
-  "name": "jeffrey",
+  "name": "cargo",
   "version": "1.0.0",
   "description": "An app that lets Jeffrey bring you amazing things, on-demand.",
   "main": "app.js",
@@ -19,6 +19,7 @@
     "lodash": "^2.4.1",
     "method-override": "^2.3.0",
     "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
     "pg": "^4.1.1",
     "postmates": "^1.0.2",
     "sequelize": "^2.0.0-rc3"

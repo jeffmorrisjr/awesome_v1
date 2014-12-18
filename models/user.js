@@ -19,7 +19,6 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        this.hasMany(models.article);
       },
       findByEmail: function (email) {
         return this.find({
@@ -78,5 +77,3 @@ module.exports = function(sequelize, DataTypes) {
   ))
   return user;
 };
-Status API Training Shop Blog About
-© 2014 GitHub, Inc. Terms Privacy Security Contact
