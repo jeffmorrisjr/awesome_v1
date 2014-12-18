@@ -52,6 +52,7 @@ module.exports = function(sequelize, DataTypes) {
       authenticate: function (email, password, done) {
         this.findByEmail(email)
         .then(function (user) {
+          console.log(password)
           if (user.checkPassword(password)) {
             done(null, user);
           } else {
