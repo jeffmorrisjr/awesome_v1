@@ -60,7 +60,7 @@ passport.deserializeUser(function(id, done){
 });
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
-app.get("/sign-up", function (req, res) {
+app.get("site/sign-up", function (req, res) {
   res.render("site/sign-up");
 });
 
@@ -81,7 +81,7 @@ app.post("/users", function (req, res) {
       // req.login is given by the passport
       req.login(user, function(){
       console.log("Id: ", user.id);
- // where should this redirct to?
+ // where should this redirect to?
       res.redirect('/users/' + user.id);
     });
   });
@@ -94,7 +94,7 @@ app.get("/users/:id", function (req, res) {
       res.render("users/show", {user: user});
     })
     .error(function () {
-      res.redirect("/sign_up");
+      res.redirect("site/sign-up");
     });
 });
 
@@ -106,7 +106,7 @@ app.get("/log-in", function (req, res) {
 // Authenticating a user
 app.post('/log-in', passport.authenticate('local', {
 	successRedirect: '/',
-	failureRedirect: '/log-in'
+	failureRedirect: 'site/log-in'
 }));
 
 app.get("/", function (req, res) {
